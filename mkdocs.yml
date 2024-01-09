@@ -1,0 +1,328 @@
+# Project information
+site_name: faith Documentations
+# site_url: https://docs.huorongames.com/hrgame-docs/
+site_author: faith
+site_description: >-
+  faith Documentations in Markdown
+
+# Repository
+repo_name: "faith-docs"
+# repo_url: https://gitlab.hrgame.com.cn/docs/hrgame-docs.git
+
+# Copyright
+copyright: 转载请注明出处。Copyright &copy; 2013 - 2024 faith.
+
+
+theme:
+  name: material
+  language: zh
+  custom_dir: material/overrides
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate 
+
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    repo: fontawesome/brands/gitlab
+    logo: logo
+
+    #  include_sidebar: true
+
+# Hooks
+hooks:
+  - material/overrides/hooks/shortcodes.py
+  - material/overrides/hooks/translations.py
+
+# Additional configuration
+extra:
+  annotate:
+    json: [.s2]
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/gitlab
+      link: test
+      # link: https://gitlab.hrgame.com.cn/dosc/hrgame-docs
+    # - icon: fontawesome/brands/docker
+    #   link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+    # - icon: fontawesome/brands/python
+    #   link: https://pypi.org/project/mkdocs-material/
+    # - icon: fontawesome/brands/mastodon
+    #   link: https://fosstodon.org/@squidfunk
+    # - icon: fontawesome/brands/twitter
+    #   link: https://twitter.com/squidfunk
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  - https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap
+    #- stylesheets/extra.css
+
+
+plugins:
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+      #  - git-revision-date-localized:
+      #      type: iso_datetime
+      #      custom_format: "%d. %B %Y"
+      #      timezone: Asia/Shanghai
+      #      locale: en
+      #      fallback_to_build_date: false
+      #      enable_creation_date: true
+      #      exclude:
+      #          - index.md
+      #      enabled: true
+      #      strict: true
+  - minify:
+      minify_html: true
+  - blog:
+      post_url_date_format: yyyy/MM/dd
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# # material
+# # theme:
+# #     icon:
+# #         logo: material/home
+# #     name: material
+# #     language: zh
+# #     palette:
+# #         # 切换到亮色
+# #         - media: "(prefers-color-scheme: light)" # 根据系统的颜色模式自动切换
+# #           scheme: default
+# #           primary: pink
+# #           accent: pink
+# #           toggle:
+# #               icon: material/weather-night
+# #               name: 切换到暗色模式
+
+# #         # 切换到暗色
+# #         - media: "(prefers-color-scheme: dark)"
+# #           scheme: slate
+# #           primary: pink
+# #           accent: pink
+# #           toggle:
+# #               icon: material/weather-sunny
+# #               name: 切换到亮色模式
+# #     features:
+# #         - navigation.instant # 现在页面不会跳转,而是类似单页应用,搜索和各种跳转都是在当前页面完成,对美观有很大帮助
+# #         - navigation.tabs # 页面上方的标签页
+# #         - navigation.tracking # 页面滚动时，导航栏高亮当前页面
+# #         - navigation.sections # 使导航栏分块
+# #         - navigation.expand # 默认展开导航
+# #         - navigation.prune # 只渲染当前页面的导航
+# #         - toc.follow # 滚动的时候侧边栏自动跟随
+# #         - navigation.top # 返回顶部按钮
+# #         - search.suggest # 补全建议
+# #         - search.highlight # 搜索结果高亮
+# #         - search.share # 搜索结果分享
+# #         - navigation.footer # 页脚提示下一章
+# #         - content.code.copy # 代码段上的赋值按钮
+
+# # docskimmer
+# # theme:
+# #   name: null
+# #   custom_dir: 'mkdocs_docskimmer'
+# #   include_search_page: true
+# #   search_index_only: false
+# #   static_templates:
+# #   - 404.html
+
+# # plugins: ['search']
+
+# # # add theme version number here
+# # extra:
+# #     version: 0.3.x
+
+# # rtd-dropdown
+# theme: rtd-dropdown
+
+# markdown_extensions:
+#     - admonition # 警告语法
+#     - def_list
+#     - footnotes
+#     - abbr
+#     - pymdownx.caret
+#     - pymdownx.mark
+#     - pymdownx.tilde
+#     - md_in_html
+#     - pymdownx.arithmatex: # latex支持
+#           generic: true
+#     - toc:
+#           permalink: true # 固定标题位置为当前位置
+#           toc_depth: 3 # 目录深度
+#     - pymdownx.highlight: # 代码块高亮
+#           anchor_linenums: true
+#           linenums: true # 显示行号
+#           use_pygments: true # 代码高亮
+#           pygments_lang_class: true
+#           auto_title: true # 显示编程语言名称
+#           linenums_style: pymdownx-inline # 行号样式,防止复制的时候复制行号
+#     - pymdownx.betterem # 强调美化,比如**text**会被美化
+#     - pymdownx.caret # 上标和下标
+#     - pymdownx.mark # 上标和下标
+#     - pymdownx.tilde # 上标和下标
+#     - pymdownx.keys # 显示按键组合
+#     - pymdownx.critic
+#     - pymdownx.details # 可以折叠的代码块 ??? note 可以让警告变成折叠的
+#     - pymdownx.inlinehilite
+#     - pymdownx.snippets
+#     - pymdownx.superfences
+#     - pymdownx.magiclink # 自动识别链接
+#     - pymdownx.smartsymbols # 智能符号
+#     - pymdownx.snippets # 代码段
+#     - pymdownx.tasklist:
+#           custom_checkbox: true # 自定义复选框
+#     - attr_list
+#     - pymdownx.emoji:
+#           emoji_index: !!python/name:material.extensions.emoji.twemoji
+#           emoji_generator: !!python/name:material.extensions.emoji.to_svg
+#     - pymdownx.superfences: # 代码块中支持Mermaid
+#           custom_fences: # 支持 Mermaid
+#               - name: mermaid
+#                 class: mermaid
+#                 format: !!python/name:pymdownx.superfences.fence_code_format
+#     - pymdownx.tabbed:
+#           alternate_style: true
+#           combine_header_slug: true
+#     - pymdownx.tasklist:
+#           custom_checkbox: true
+#           clickable_checkbox: true
+#     - meta # 支持Markdown文件上方自定义标题标签等
+#     - tables
+
+# # 下面的是需要自定义的内容，请不要修改上方的内容，上面都是在开启各种插件和功能
+
+# # Project information
+# site_name: faith的运维开发笔记 # 设置文档名称
+# copyright: 转载请附注出处 # 左下角的版权声明
+# # site_url: https://docs.huorongames.com/hrgame-docs/
+# site_author: faith
+# site_description: >-
+#   faith's Documentations in Markdown
+
+# plugins:
+#     - mkdocstrings:
+#           handlers:
+#               python:
+#                   paths: [src]
+#     - search # 搜索插件
+#     # - offline # 离线本地搜索，和navigation.instant不能同时启用
+
+# extra:
+#     # generator: false  #删除页脚显示“使用 MkDocs 材料制造”
+#     social:
+#         - icon: fontawesome/brands/github
+#           link: https://github.com/271374667
+#           name: GitHub
+#         - icon: fontawesome/brands/bilibili
+#           link: https://space.bilibili.com/282527875
+#           name: Bilibili
+#         - icon: material/email
+#           link: Python调包侠:<271374667@qq.com>
+#           name: Email
+
+nav:
+  - Home: index.md
+  - Monitoring:
+    - prometheus: monitoring/prometheus.md
+    - k8s-metrics: monitoring/k8s-metrics.md
+    # - prometheus-alert: monitoring/prometheus-alert.md
+    # - prometheus-alert-manager: monitoring/prometheus-alert-manager.md
+    # - prometheus-grafana: monitoring/prometheus-grafana.md
+    # - prometheus-grafana-alert: monitoring/prometheus-grafana-alert.md
+    # - prometheus-grafana-alert-manager: monitoring/prometheus-grafana-alert-manager.md
