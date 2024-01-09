@@ -1,0 +1,16 @@
+image: python:3.11-alpine3.18
+
+before_script:
+  - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs && mkdocs --version
+  - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs-material
+
+pages:
+  stage: deploy
+  script:
+  - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -U -r requirements.txt
+  - mkdocs build --site-dir public
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
