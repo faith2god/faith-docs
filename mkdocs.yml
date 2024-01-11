@@ -1,22 +1,23 @@
 # Project information
-site_name: faith Documentations
+site_name: fuyuanyuan Documentations
 # site_url: https://docs.huorongames.com/hrgame-docs/
-site_author: faith
+site_author: fuyuanyuan
 site_description: >-
-  faith Documentations in Markdown
+  fuyuanyuan Documentations in Markdown
 
 # Repository
-repo_name: "faith-docs"
+repo_name: "fuyuanyuan-docs"
 # repo_url: https://gitlab.hrgame.com.cn/docs/hrgame-docs.git
 
 # Copyright
-copyright: 转载请注明出处。Copyright &copy; 2013 - 2024 faith.
+copyright: 转载请注明出处。Copyright &copy; 2013 - 2024 fuyuanyuan.
 
 
 theme:
   name: material
   language: zh
   custom_dir: material/overrides
+  exclude: [monitoring,tools,blog]
   features:
     - announce.dismiss
     - content.action.edit
@@ -106,6 +107,9 @@ extra_css:
 
 
 plugins:
+  - tags:
+      tags_file: tags.md 
+      enabled: true
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
       #  - git-revision-date-localized:
@@ -288,12 +292,12 @@ markdown_extensions:
 # # 下面的是需要自定义的内容，请不要修改上方的内容，上面都是在开启各种插件和功能
 
 # # Project information
-# site_name: faith的运维开发笔记 # 设置文档名称
+# site_name: fuyuanyuan的运维开发笔记 # 设置文档名称
 # copyright: 转载请附注出处 # 左下角的版权声明
 # # site_url: https://docs.huorongames.com/hrgame-docs/
-# site_author: faith
+# site_author: fuyuanyuan
 # site_description: >-
-#   faith's Documentations in Markdown
+#   fuyuanyuan's Documentations in Markdown
 
 # plugins:
 #     - mkdocstrings:
@@ -317,12 +321,14 @@ markdown_extensions:
 #           name: Email
 
 nav:
-  - Home: index.md
+  - Introduction: index.md
   - Monitoring:
-    - prometheus: monitoring/prometheus.md
-    - k8s-metrics: monitoring/k8s-metrics.md
+    - prometheus介绍: monitoring/prometheus-intro.md
+    - prometheus安装: monitoring/prometheus-install.md
     # - prometheus-alert: monitoring/prometheus-alert.md
     # - prometheus-alert-manager: monitoring/prometheus-alert-manager.md
     # - prometheus-grafana: monitoring/prometheus-grafana.md
     # - prometheus-grafana-alert: monitoring/prometheus-grafana-alert.md
     # - prometheus-grafana-alert-manager: monitoring/prometheus-grafana-alert-manager.md
+  - Blog:
+    - blog/index.md 
